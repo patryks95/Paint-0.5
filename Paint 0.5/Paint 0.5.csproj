@@ -146,8 +146,6 @@
     <Resource Include="Icons\Size.PNG" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Icons\elipsa.png" />
-    <Resource Include="Icons\kwadrat.png" />
     <Resource Include="Icons\linia.png" />
   </ItemGroup>
   <ItemGroup>
@@ -165,6 +163,13 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\elipsa.png" />
+    <Resource Include="Icons\kwadrat.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\strzalka.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

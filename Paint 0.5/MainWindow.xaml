@@ -33,11 +33,33 @@
         </Menu>
         <ToolBarTray Grid.Row="1" Orientation="Horizontal">
             <ToolBar>
+                <GroupBox Header="Narzędzia">
+                    <StackPanel Width="80">
+                        <Button x:Name="DeleteChange" Height="30" Width="30" Margin="5" Click="DeleteChange_Click">
+                            <Image Height="25" Width="25" Source="Icons/strzalka.png" ></Image>
+                        </Button>
+                        <Label Content="Rozmiar [px]:"></Label>
+                        <ComboBox x:Name="SizeCanvas" SelectionChanged="SizeCanvas_SelectionChanged">
+                            <ComboBoxItem x:Name="Svga" >800x600</ComboBoxItem>
+                            <ComboBoxItem x:Name="HD" >1280×720</ComboBoxItem>
+                            <ComboBoxItem x:Name="AHD" >1366×768</ComboBoxItem>
+
+                        </ComboBox>
+                        
+                    </StackPanel>
+
+                </GroupBox>
                 <GroupBox Header="Kształty">
-                    <WrapPanel Height="100" Width="100">
-                        <Image Height="30" Width="30" Source="Icons/linia.png" />
-                        <Image Height="30" Width="30" Source="Icons/elipsa.png"/>
-                        <Image Height="30" Width="30" Source="Icons/kwadrat.png"/>
+                    <WrapPanel x:Name="ShapesPanel" Height="100" Width="100">
+                        <Button x:Name="LineButton" Height="30" Width="30" Click="ShapesButton_Click">
+                            <Image Height="30" Width="30" Source="Icons/linia.png" />
+                        </Button>
+                        <Button x:Name="EllipseButton" Height="30" Width="30" Click="ShapesButton_Click">
+                            <Image Height="25" Width="25"  Source="C:\Users\Lenovo\Source\Repos\Paint 0.5\Paint 0.5\Icons\elipsa.png" StretchDirection="DownOnly"/>
+                        </Button>
+                        <Button x:Name="RectangleButton" Height="30" Width="30" Click="ShapesButton_Click" >
+                            <Image Height="25" Width="25"   Source="C:\Users\Lenovo\Source\Repos\Paint 0.5\Paint 0.5\Icons\kwadrat.png" Stretch="Fill"  />
+                        </Button>
                     </WrapPanel>
                 </GroupBox>
                 <GroupBox Header="Rodzaj linii">
@@ -63,7 +85,7 @@
                     </ComboBox>
                 </GroupBox>
                 <GroupBox Header="Grubość linii">
-                    <ComboBox x:Name="ComboBoxSize" Width="100" Height="20" IsEditable="True">
+                    <ComboBox x:Name="ComboBoxSize" Width="100" Height="20" IsEditable="True" PreviewTextInput="ComboBoxSize_PreviewTextInput">
                         <ComboBoxItem>10</ComboBoxItem>
                         <ComboBoxItem>15</ComboBoxItem>
                         <ComboBoxItem>20</ComboBoxItem>
@@ -89,7 +111,7 @@
                 </GroupBox>
                 <GroupBox Header="Kolory">
                     <StackPanel Orientation="Horizontal">
-                        <WrapPanel Width="155" Height="65" >
+                        <WrapPanel x:Name="ColorsPanel" Width="155" Height="65" >
                             <Button Height="30" Width="30" Click="Button_Color_Click">
                                 <Border Height="25" Width="25" Background="#FFE50A0A"   />
                             </Button>
@@ -160,7 +182,7 @@
             </StatusBarItem>
         </StatusBar>
         <ScrollViewer Grid.Row="2" Background="#FFC1DBDD">
-            <Canvas VerticalAlignment="Top" Background="White" HorizontalAlignment="Left" Height="200" Width="400" />
+            <Canvas x:Name="canvas" VerticalAlignment="Top" ClipToBounds="True" Background="White" HorizontalAlignment="Left" Height="200" Width="400" />
         </ScrollViewer>
 
     </Grid>
