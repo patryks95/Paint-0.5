@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Paint_0._5"
         xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
         mc:Ignorable="d"
-        Title="ColorSelector" Height="400" Width="300">
+        Title="ColorSelector" Height="400" Width="320">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -23,9 +23,9 @@
             <ColumnDefinition Width="*" />
 
         </Grid.ColumnDefinitions>
-        <xctk:ColorCanvas Height="321" Width="300" VerticalAlignment="Top" Grid.ColumnSpan="5"/>
-        <Button  Grid.Column="1" Grid.Row="2" Content="Wybierz"/>
-        <Button  Grid.Column="3" Grid.Row="2" Content="Anuluj"/>
+        <xctk:ColorCanvas x:Name="selector"  Height="320" Width="300" VerticalAlignment="Top" Grid.ColumnSpan="5"/>
+        <Button x:Name="Selected"  Grid.Column="1" Grid.Row="2" Content="Wybierz" Click="Selected_Click"/>
+        <Button x:Name="Cancel"  Grid.Column="3" Grid.Row="2" Content="Anuluj" Click="Cancel_Click"/>
 
     </Grid>
 </Window>

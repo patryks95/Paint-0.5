@@ -6,11 +6,15 @@
         xmlns:local="clr-namespace:Paint_0._5"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
+
     <Grid>
+
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+
 
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
@@ -37,62 +41,88 @@
                     </WrapPanel>
                 </GroupBox>
                 <GroupBox Header="Rodzaj linii">
-                    <ComboBox Width="100" Height="20" >
+                    <ComboBox x:Name="ComboBoxType" Width="100" Height="20" >
                         <ComboBoxItem>
-                            <Image Height="20" Width="100" Source="Icons/dash.png"   />
+                            <Button Width="100" Height="20" >
+                                <Button.Template>
+                                    <ControlTemplate>
+                                        <Image Height="20" Source="Icons/dash.png" ></Image>
+                                    </ControlTemplate>
+                                </Button.Template>
+                            </Button>
                         </ComboBoxItem>
                         <ComboBoxItem>
-                            <Image Height="20" Width="100" Source="Icons/solid.png"  />
+                            <Button Width="100" Height="20" >
+                                <Button.Template>
+                                    <ControlTemplate>
+                                        <Image Height="20" Source="Icons/solid.png"  ></Image>
+                                    </ControlTemplate>
+                                </Button.Template>
+                            </Button>
                         </ComboBoxItem>
                     </ComboBox>
                 </GroupBox>
                 <GroupBox Header="Grubość linii">
-                    <ComboBox Width="100" Height="20"></ComboBox>
+                    <ComboBox x:Name="ComboBoxSize" Width="100" Height="20" IsEditable="True">
+                        <ComboBoxItem>10</ComboBoxItem>
+                        <ComboBoxItem>15</ComboBoxItem>
+                        <ComboBoxItem>20</ComboBoxItem>
+                        <ComboBoxItem>25</ComboBoxItem>
+                        <ComboBoxItem>30</ComboBoxItem>
+                    </ComboBox>
                 </GroupBox>
             </ToolBar>
             <ToolBar>
                 <GroupBox Header="Kolor wypełnienia">
-                    <Button Width="50" Height="50"></Button>
+                    <Button x:Name="fillButton" Width="50" Height="50" Click="fillButton_Click">
+                        <Border x:Name="fillBorder"  Width="40" Height="40">
+
+                        </Border>
+                    </Button>
                 </GroupBox>
                 <GroupBox Header="Kolor konturu">
-                    <Button Width="50" Height="50"></Button>
+                    <Button x:Name="countorButton" Width="50" Height="50" Click="countorButton_Click">
+                        <Border x:Name="countorBorder" Width="40" Height="40">
+
+                        </Border>
+                    </Button>
                 </GroupBox>
                 <GroupBox Header="Kolory">
                     <StackPanel Orientation="Horizontal">
                         <WrapPanel Width="155" Height="65" >
-                            <Button Height="30" Width="30">
+                            <Button Height="30" Width="30" Click="Button_Color_Click">
                                 <Border Height="25" Width="25" Background="#FFE50A0A"   />
                             </Button>
-                            <Button Height="30" Width="30">
+                            <Button Height="30" Width="30" Click="Button_Color_Click">
                                 <Border Height="25" Width="25" Background="#FFF4FF00"   />
                             </Button>
-                            <Button Height="30" Width="30">
+                            <Button Height="30" Width="30" Click="Button_Color_Click">
                                 <Border Height="25" Width="25" Background="#FF4EE50A"   />
                             </Button>
-                            <Button Height="30" Width="30">
+                            <Button Height="30" Width="30" Click="Button_Color_Click">
                                 <Border Height="25" Width="25" Background="#FF0AE592"   />
                             </Button>
-                            <Button Height="30" Width="30">
+                            <Button Height="30" Width="30" Click="Button_Color_Click">
                                 <Border Height="25" Width="25" Background="#FF0D91E0"   />
                             </Button>
-                            <Button Height="30" Width="30">
+                            <Button Height="30" Width="30" Click="Button_Color_Click">
                                 <Border Height="25" Width="25" Background="#FF0A24E5"   />
                             </Button>
-                            <Button Height="30" Width="30">
+                            <Button Height="30" Width="30" Click="Button_Color_Click">
                                 <Border Height="25" Width="25" Background="#FFA607F4"   />
                             </Button>
-                            <Button Height="30" Width="30">
+                            <Button Height="30" Width="30" Click="Button_Color_Click">
                                 <Border Height="25" Width="25" Background="#FFE50ADE"   />
                             </Button>
-                            <Button Height="30" Width="30">
+                            <Button Height="30" Width="30" Click="Button_Color_Click">
                                 <Border Height="25" Width="25" Background="White"   />
                             </Button>
-                            <Button Height="30" Width="30">
+                            <Button Height="30" Width="30" Click="Button_Color_Click">
                                 <Border Height="25" Width="25" Background="#FF080000"   />
                             </Button>
 
                         </WrapPanel>
-                        <Button x:Name="ButtonNewColor" Height="80" Width="80">
+                        <Button x:Name="ButtonNewColor" Height="80" Width="80" Click="ButtonNewColor_Click">
                             <StackPanel Orientation="Vertical" Height="80" Width="80" HorizontalAlignment="Center">
                                 <Border Height="60" Width="75" HorizontalAlignment="Center"   >
                                     <Border.Background>
@@ -118,7 +148,7 @@
             </ToolBar>
         </ToolBarTray>
 
-        <StatusBar Height="25"  VerticalAlignment="Bottom" Grid.Row="2">
+        <StatusBar Height="25"  VerticalAlignment="Bottom" Grid.Row="3">
             <StatusBarItem HorizontalAlignment="Left">
                 <StackPanel Orientation="Vertical">
                     <Image Source="Icons/Size.PNG" Width="20" Height="20" Stretch="Fill"/>
@@ -129,6 +159,9 @@
                 <TextBlock x:Name="StatusBarData" />
             </StatusBarItem>
         </StatusBar>
+        <ScrollViewer Grid.Row="2" Background="#FFC1DBDD">
+            <Canvas VerticalAlignment="Top" Background="White" HorizontalAlignment="Left" Height="200" Width="400" />
+        </ScrollViewer>
 
     </Grid>
 
